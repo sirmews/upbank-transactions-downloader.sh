@@ -12,7 +12,6 @@ In order to use it:
 Note:
 - This doesn't download per specified account
 - The CSV process function strips out `round ups` and provides a simpler output that works specifically for me. Fork it and adjust for yourself.
-- This doesn't do any post processing (though I'm open to PRs with suggestions)
 
 ## Where do I find my API key?
 
