@@ -1,0 +1,27 @@
+Create a script to download transaction data from the UP Bank API between two dates of a financial year.
+
+Requirements:
+1. Read authentication token from a .env file along with start and end date
+3. Process one month at a time to handle large data sets
+4. Add a delay to avoid rate limiting.
+5. Handle pagination (100 transactions per page)
+6. Save each month's transactions to a separate JSON file
+7. Combine multiple pages into single files
+
+API Details:
+- Base URL: https://api.up.com.au/api/v1/transactions
+- Authentication: Bearer token in Authorization header
+- Query parameters:
+  - page[size]: 100
+  - filter[since]: Start date in ISO format (2023-07-01T00:00:00Z)
+  - filter[until]: End date in ISO format  
+- Pagination: Follow the "links.next" field in the response until null
+
+Output:
+- Single JSON file per month: transactions_YYYY-MM-DD_complete.json
+- Each file should combine all pages for that month (use jq because we may use it for more processing later)
+- Preserve original API response structure (data, links, meta)
+
+Note:
+- Support macOS date command
+- Provide progress feedback. Don't make curl silent. See everything.
