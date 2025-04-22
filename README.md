@@ -6,10 +6,12 @@ In order to use it:
 
 - Copy .env.example into a .env
 - Add your `AUTH_TOKEN`, `START_DATE` and `END_DATE`
-- run `./exporter.sh` to start downloading transactions.
+- run `./downloader.sh` to start downloading transactions.
+- (optional) run `./process_to_csv.sh` to turn it into a csv file
 
 Note:
 - This doesn't download per specified account
+- The CSV process function strips out `round ups` and provides a simpler output that works specifically for me. Fork it and adjust for yourself.
 - This doesn't do any post processing (though I'm open to PRs with suggestions)
 
 ## Where do I find my API key?
